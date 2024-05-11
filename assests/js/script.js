@@ -53,10 +53,10 @@ function(){
 
 // <!-- typed js effect starts -->
     var typed = new Typed(".typing-text", {
-        strings: ["Web development", "Machine Learning","Programming", "Community Management", "UI & Graphics Design"],
+        strings: ["Software Development", "Full Stack development", "Python / API Development", "UI Designing", "Frontend Development", "Backend Development"],
         loop: true,
-        typeSpeed: 45,
-		backSpeed: 25,
+        typeSpeed: 50,
+		backSpeed: 30,
 		backDelay: 500,
       });
 // <!-- typed js effect ends -->
