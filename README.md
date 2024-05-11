@@ -1,5 +1,5 @@
 # bhargav-joshi.github.io
-My Personal portfolio 2021 | Bhargav Joshi
+My Personal portfolio 2024 | Bhargav Joshi
 
 
 ## Pending 
@@ -8,3 +8,6 @@ My Personal portfolio 2021 | Bhargav Joshi
 - Add resume
 - Add latest details
 - Use some animations 
+
+# Last Updated 
+2024
