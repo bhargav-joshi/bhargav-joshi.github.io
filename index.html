@@ -16,7 +16,7 @@
   <link href="https://fonts.googleapis.com" rel="preconnect">
   <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Questrial:wght@400&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet">
 
   <!-- Vendor CSS Files -->
@@ -32,6 +32,13 @@
 </head>
 
 <body class="index-page">
+  <!-- Custom Cursor -->
+  <div class="custom-cursor-dot"></div>
+  <div class="custom-cursor-outline"></div>
+
+  <!-- Particles.js Container -->
+  <div id="particles-js" style="position: fixed; width: 100%; height: 100%; top: 0; left: 0; z-index: -1;"></div>
+
 
   <header id="header" class="header d-flex align-items-center sticky-top">
     <div
@@ -47,44 +54,57 @@
   bottom: 30px;
   right: 30px;
   z-index: 9999;
-  background: #ffffff;
-  color: #222;
-  border-left: 5px solid #0a66c2;
-  border-radius: 12px;
+  background: rgba(15, 23, 42, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: #e2e8f0;
+  border-left: 4px solid #0ea5e9;
+  border-right: 1px solid rgba(14, 165, 233, 0.3);
+  border-top: 1px solid rgba(14, 165, 233, 0.3);
+  border-bottom: 1px solid rgba(14, 165, 233, 0.3);
+  border-radius: 8px;
   padding: 1rem 1.2rem;
-  width: 340px;
+  width: 350px;
   max-width: 90%;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-  font-family: 'Segoe UI', sans-serif;
+  box-shadow: 0 0 20px rgba(14, 165, 233, 0.2);
+  font-family: 'Inter', sans-serif;
   display: flex;
   align-items: flex-start;
-  gap: 10px;
+  gap: 12px;
   transform: translateY(100px);
   opacity: 0;
-  transition: all 0.6s ease-in-out;
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 ">
 
-        <!-- LinkedIn Icon -->
-        <div style="flex-shrink: 0;">
-          <a href="https://www.linkedin.com/in/bhargavjoshi55/" target="_blank">
-            <img src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" width="36" height="36"
-              style="border-radius: 4px;">
-          </a>
+        <!-- Glowing AI Core Icon -->
+        <div
+          style="flex-shrink: 0; display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background: rgba(14, 165, 233, 0.1); box-shadow: 0 0 10px rgba(14, 165, 233, 0.5);">
+          <i class="bi bi-cpu" style="color: #0ea5e9; font-size: 1.2rem;"></i>
         </div>
 
         <!-- Message Content -->
         <div style="flex-grow: 1;">
-          <p style="margin: 0; font-size: 0.95rem; line-height: 1.4;">
-            <strong>Open to new opportunities!</strong><br>
-            Reach via Mail —
-            <a href="https://www.linkedin.com/in/bhargavjoshi55/" target="_blank" style="
-        color: #0a66c2;
+          <p style="margin: 0; font-size: 0.95rem; line-height: 1.5;">
+            <strong style="color: #fff; font-family: 'Outfit', sans-serif; letter-spacing: 0.5px;">Incoming
+              Transmission</strong><br>
+            <span style="font-size: 0.85rem; color: #94a3b8;">Senior SDE open to new roles.</span><br>
+            <a href="https://www.linkedin.com/in/bhargavjoshi55/" target="_blank" class="btn-pulse" style="
+        color: #38bdf8;
         text-decoration: none;
-        font-weight: bold;
+        font-weight: 500;
+        font-size: 0.9rem;
         transition: 0.3s;
-      " onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">
-              message me on LinkedIn
-            </a>.
+        text-shadow: 0 0 8px rgba(56, 189, 248, 0.4);
+        display: inline-block;
+        margin-top: 5px;
+        padding: 4px 10px;
+        background: rgba(14, 165, 233, 0.1);
+        border: 1px solid #0ea5e9;
+        border-radius: 4px;
+      " onmouseover="this.style.background='rgba(14, 165, 233, 0.2)'"
+              onmouseout="this.style.background='rgba(14, 165, 233, 0.1)'">
+              > Connect on LinkedIn_
+            </a>
           </p>
         </div>
 
@@ -92,13 +112,14 @@
         <button onclick="dismissAlert()" style="
     background: transparent;
     border: none;
-    color: #888;
-    font-size: 1.1rem;
+    color: #64748b;
+    font-size: 1.2rem;
     cursor: pointer;
     margin-left: auto;
     padding: 0;
     line-height: 1;
-  " title="Dismiss">&times;</button>
+    transition: 0.3s;
+  " onmouseover="this.style.color='#f87171'" onmouseout="this.style.color='#64748b'" title="Dismiss">&times;</button>
       </div>
 
       <!-- Notification Sound -->
@@ -181,38 +202,64 @@
 
         <div class="row align-items-center content">
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-            <h2>Crafting Ideas into Scalable Digital Products</h2>
-            <p class="lead">
-              Elevating User Experiences and APIs through Precision Engineering and Thoughtful Design
+            <h2
+              style="font-family: 'Outfit', sans-serif; font-weight: 800; background: linear-gradient(135deg, #fff 0%, #0ea5e9 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+              Architecting the Future of AI & Fintech</h2>
+            <p class="lead" style="color: #94a3b8; font-size: 1.15rem; margin-top: 1.5rem; min-height: 50px;">
+              <span id="typewriter-text" class="typing-caret"></span><br>
+              <span
+                style="font-size: 0.95rem; color: #64748b; opacity: 0; animation: fadeIn 2s forwards 3.5s;">Orchestrating
+                highly scalable backend systems and AI-driven solutions for the BFSI sector.</span>
             </p>
-            <div class="cta-buttons" data-aos="fade-up" data-aos-delay="300">
-              <a href="#portfolio" class="btn btn-primary">View My Work 🠋</a>
-              <a href="#contact" class="btn btn-outline">Reach via Mail</a>
-              <a href="https://bhargav-joshi.github.io/designs/" class="btn btn-submit"
-                style="border-radius: 25px; background-color: #8360b1; color: #fff; border: none;">Design Portfolio
-                (UX)</a>
+            <div class="cta-buttons" data-aos="fade-up" data-aos-delay="300" style="margin-top: 2rem;">
+              <a href="#portfolio" class="btn btn-primary"
+                style="background: rgba(14, 165, 233, 0.1); border: 1px solid #0ea5e9; color: #0ea5e9; box-shadow: 0 0 15px rgba(14, 165, 233, 0.2);">Explore
+                Systems_ 🠋</a>
+              <a href="https://github.com/bhargav-joshi" target="_blank" class="btn btn-outline"
+                style="border: 1px solid rgba(255,255,255,0.2); color: #fff; background: transparent;">GitHub</a>
             </div>
-            <div class="hero-stats" data-aos="fade-up" data-aos-delay="400">
+            <div class="hero-stats" data-aos="fade-up" data-aos-delay="400"
+              style="margin-top: 3rem; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 2rem;">
               <div class="stat-item">
-                <span class="stat-number">3+</span>
-                <span class="stat-label">Years Experience</span>
+                <span class="stat-number"
+                  style="color: #0ea5e9; text-shadow: 0 0 10px rgba(14, 165, 233, 0.4);">4+</span>
+                <span class="stat-label">Years Exp.</span>
               </div>
               <div class="stat-item">
-                <span class="stat-number">150+</span>
-                <span class="stat-label">Projects Completed</span>
+                <span class="stat-number"
+                  style="color: #0ea5e9; text-shadow: 0 0 10px rgba(14, 165, 233, 0.4);">99.9%</span>
+                <span class="stat-label">Uptime SLA</span>
               </div>
               <div class="stat-item">
-                <span class="stat-number">30+</span>
-                <span class="stat-label">Happy Clients</span>
+                <span class="stat-number"
+                  style="color: #0ea5e9; text-shadow: 0 0 10px rgba(14, 165, 233, 0.4);">100K+</span>
+                <span class="stat-label">Concurrent Users</span>
               </div>
             </div>
           </div>
           <div class="col-lg-6">
-            <div class="hero-image">
-              <img src="assets/img/profile/programer.gif" alt="Portfolio Hero Image" class="img-fluid"
-                data-aos="zoom-out" data-aos-delay="300">
-              <div class="shape-1"></div>
-              <div class="shape-2"></div>
+            <div class="hero-image" style="position: relative;" data-tilt data-tilt-max="5" data-tilt-speed="400"
+              data-tilt-glare data-tilt-max-glare="0.2">
+              <div
+                style="position: absolute; top: -20px; left: -20px; right: -20px; bottom: -20px; background: radial-gradient(circle, rgba(14,165,233,0.15) 0%, transparent 70%); z-index: 0; filter: blur(40px);">
+              </div>
+              <img src="assets/img/profile/ai_hero.png" alt="AI Cloud Network" class="img-fluid" data-aos="zoom-out"
+                data-aos-delay="300"
+                style="border-radius: 12px; box-shadow: 0 0 30px rgba(14, 165, 233, 0.15); border: 1px solid rgba(255,255,255,0.05); position: relative; z-index: 2;">
+
+              <!-- Floating Terminal -->
+              <div class="terminal-overlay" data-aos="fade-up" data-aos-delay="600">
+                <div class="terminal-header">
+                  <div class="terminal-dot dot-red"></div>
+                  <div class="terminal-dot dot-yellow"></div>
+                  <div class="terminal-dot dot-green"></div>
+                </div>
+                <div id="terminal-content">
+                  <div><span style="color: #0ea5e9;">root@bhargav</span>:~$ <span id="term-cmd"></span></div>
+                  <div id="term-output" style="display: none; margin-top: 5px; color: #cbd5e1;"></div>
+                </div>
+              </div>
+
             </div>
           </div>
         </div>
@@ -243,39 +290,49 @@
         <div class="row align-items-center">
           <div class="col-lg-6 position-relative" data-aos="fade-right" data-aos-delay="200">
             <div class="about-image">
-              <img src="assets/img/profile/profile-square.png " alt="Profile Image" class="img-fluid rounded-4">
+              <img src="assets/img/profile/profile-main.png" alt="Profile Image" class="img-fluid rounded-4">
             </div>
           </div>
 
           <div class="col-lg-6" data-aos="fade-left" data-aos-delay="300">
             <div class="about-content">
-              <span class="subtitle">About Me</span>
+              <span class="subtitle"
+                style="color: #0ea5e9; font-weight: 600; letter-spacing: 1px; text-transform: uppercase;">About
+                Me</span>
 
-              <h2>SDE I</h2>
+              <h2 style="font-family: 'Outfit', sans-serif; font-weight: 700;">Senior Software Development Engineer</h2>
 
-              <p class="lead mb-4">
-                Full-Stack (Angular, Python, Node.js, FastAPI, Django, Flask, JS/TS)
+              <p class="lead mb-4" style="color: #e2e8f0;">
+                Full-Stack Architecture (FastAPI, Python, Angular, Node.js) & MLOps
               </p>
 
-              <p class="mb-4">
-                3 Yrs Exp. | Built 100+ Scalable Projects | UI/UX + Backend APIs,
-                </br>
-                Cloud & Automation | SDE II/Tech Lead Aspirant
+              <p class="mb-4" style="color: #94a3b8; line-height: 1.7;">
+                With over 4 years of experience, I architect scalable backend infrastructure and robust AI-driven
+                solutions. I'm a CKAD-certified developer currently pursuing an Executive PG Diploma in AI/ML (GenAI &
+                MLOps) from IIIT Bangalore. My focus is on building resilient microservices, optimizing database
+                performance, and integrating Generative AI into enterprise products.
               </p>
 
               <div class="personal-info">
                 <div class="row g-4">
                   <div class="col-6">
-                    <div class="info-item">
-                      <span class="label">Tech Stack</span>
-                      <span class="value">Frontend + Backend</span>
+                    <div class="info-item"
+                      style="background: rgba(15, 23, 42, 0.4); border: 1px solid rgba(14, 165, 233, 0.2); padding: 15px; border-radius: 8px;">
+                      <span class="label"
+                        style="color: #94a3b8; font-size: 0.85rem; display: block; margin-bottom: 5px;">Specialization</span>
+                      <span class="value" style="color: #fff; font-weight: 600; font-size: 1.05rem;">Backend &
+                        GenAI</span>
                     </div>
                   </div>
 
                   <div class="col-6">
-                    <div class="info-item">
-                      <span class="label">Occupation</span>
-                      <span class="value">Lead Software Engineer</span>
+                    <div class="info-item"
+                      style="background: rgba(15, 23, 42, 0.4); border: 1px solid rgba(14, 165, 233, 0.2); padding: 15px; border-radius: 8px;">
+                      <span class="label"
+                        style="color: #94a3b8; font-size: 0.85rem; display: block; margin-bottom: 5px;">Current
+                        Role</span>
+                      <span class="value" style="color: #fff; font-weight: 600; font-size: 1.05rem;">Senior SDE @
+                        Jio</span>
                     </div>
                   </div>
 
@@ -303,50 +360,95 @@
     <section id="skills" class="skills section">
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <h2 style="font-size: 1.8rem; font-weight: 600; margin-bottom: 1rem; color: #0d6efd;">
-          Tech Skills
+        <h2
+          style="font-family: 'Outfit', sans-serif; font-size: 2.2rem; font-weight: 700; margin-bottom: 2rem; color: #fff; text-align: center;">
+          <span style="color: #0ea5e9;">></span> Technical Arsenal
         </h2>
 
-        <div
-          style="padding: 16px; border-left: 4px solid #0d6efd; background-color: #f8f9fa; border-radius: 8px; box-shadow: 0 0 20px rgba(0,0,0,0.05); animation: fadeInUp 0.6s ease-in-out;">
-          <p style="margin-bottom: 12px;">
-            <strong>Frontend &amp; UI Skills:</strong><br>
-            <span style="color: #6c757d;">
-              Angular, React.js, JavaScript (ES6+), TypeScript, HTML5, CSS3, SCSS/SASS, Tailwind CSS, Bootstrap,
-              Material UI, RxJS, Leaflet.js
-            </span>
-          </p>
-          <p style="margin-bottom: 12px;">
-            <strong>API &amp; Integration:</strong><br>
-            <span style="color: #6c757d;">
-              RESTful APIs, JWT Auth, JSON, Axios, Postman, Swagger, Node.js, Express.js, FastAPI (for BFF layers)
-            </span>
-          </p>
-          <p style="margin-bottom: 12px;">
-            <strong>Tooling &amp; DevOps:</strong><br>
-            <span style="color: #6c757d;">
-              Git, GitHub, GitLab, CI/CD (Jenkins, Azure DevOps), Docker (basic), VS Code, Chrome DevTools, JIRA
-            </span>
-          </p>
-          <p style="margin-bottom: 12px;">
-            <strong>Design &amp; UX:</strong><br>
-            <span style="color: #6c757d;">
-              Figma, Adobe XD to Code, Responsive &amp; Mobile-First Design, Cross-Browser Compatibility, Accessibility
-              (WCAG), Framer Motion
-            </span>
-          </p>
-          <p style="margin-bottom: 12px;">
-            <strong>Testing &amp; Debugging:</strong><br>
-            <span style="color: #6c757d;">
-              Unit Testing, E2E Testing, Code Debugging, Performance Optimization
-            </span>
-          </p>
-          <p style="margin-bottom: 0;">
-            <strong>Methodologies:</strong><br>
-            <span style="color: #6c757d;">
-              Agile, Scrum, SDLC, Clean Code Principles, Component Reusability, OOP, DSA, Version Control
-            </span>
-          </p>
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-4">
+            <div data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2"
+              style="padding: 24px; background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(10px); border: 1px solid rgba(14, 165, 233, 0.3); border-radius: 12px; height: 100%; transition: transform 0.3s; box-shadow: 0 4px 20px rgba(0,0,0,0.5);"
+              onmouseover="this.style.transform='translateY(-5px)'; this.style.borderColor='#0ea5e9'; this.style.boxShadow='0 10px 30px rgba(14,165,233,0.2)'"
+              onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(14, 165, 233, 0.3)'; this.style.boxShadow='0 4px 20px rgba(0,0,0,0.5)'">
+              <h4 style="color: #38bdf8; font-size: 1.2rem; margin-bottom: 15px; font-family: 'Outfit', sans-serif;"><i
+                  class="bi bi-server me-2"></i> Backend & APIs</h4>
+              <p style="color: #94a3b8; line-height: 1.6; margin: 0; font-size: 0.95rem;">
+                <strong>Python, FastAPI, Django, Flask, Node.js, Express.js.</strong> RESTful APIs, JWT/OAuth2 Auth,
+                Celery, Microservices.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2"
+              style="padding: 24px; background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(10px); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 12px; height: 100%; transition: transform 0.3s; box-shadow: 0 4px 20px rgba(0,0,0,0.5);"
+              onmouseover="this.style.transform='translateY(-5px)'; this.style.borderColor='#8b5cf6'; this.style.boxShadow='0 10px 30px rgba(139,92,246,0.2)'"
+              onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(139, 92, 246, 0.3)'; this.style.boxShadow='0 4px 20px rgba(0,0,0,0.5)'">
+              <h4 style="color: #a78bfa; font-size: 1.2rem; margin-bottom: 15px; font-family: 'Outfit', sans-serif;"><i
+                  class="bi bi-robot me-2"></i> AI / ML & GenAI</h4>
+              <p style="color: #94a3b8; line-height: 1.6; margin: 0; font-size: 0.95rem;">
+                <strong>LangChain, RAG, GenAI, MLOps, Agentic AI.</strong> Integrating LLMs, Prompt Engineering,
+                pgvector, GitHub Copilot.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2"
+              style="padding: 24px; background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(10px); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 12px; height: 100%; transition: transform 0.3s; box-shadow: 0 4px 20px rgba(0,0,0,0.5);"
+              onmouseover="this.style.transform='translateY(-5px)'; this.style.borderColor='#10b981'; this.style.boxShadow='0 10px 30px rgba(16,185,129,0.2)'"
+              onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(16, 185, 129, 0.3)'; this.style.boxShadow='0 4px 20px rgba(0,0,0,0.5)'">
+              <h4 style="color: #34d399; font-size: 1.2rem; margin-bottom: 15px; font-family: 'Outfit', sans-serif;"><i
+                  class="bi bi-cloud-check me-2"></i> Cloud & DevOps</h4>
+              <p style="color: #94a3b8; line-height: 1.6; margin: 0; font-size: 0.95rem;">
+                <strong>Docker, Kubernetes (CKAD), AWS, Azure DevOps.</strong> CI/CD Pipelines, Jenkins, SonarQube,
+                Prometheus, Grafana.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2"
+              style="padding: 24px; background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(10px); border: 1px solid rgba(245, 158, 11, 0.3); border-radius: 12px; height: 100%; transition: transform 0.3s; box-shadow: 0 4px 20px rgba(0,0,0,0.5);"
+              onmouseover="this.style.transform='translateY(-5px)'; this.style.borderColor='#f59e0b'; this.style.boxShadow='0 10px 30px rgba(245,158,11,0.2)'"
+              onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(245, 158, 11, 0.3)'; this.style.boxShadow='0 4px 20px rgba(0,0,0,0.5)'">
+              <h4 style="color: #fbbf24; font-size: 1.2rem; margin-bottom: 15px; font-family: 'Outfit', sans-serif;"><i
+                  class="bi bi-database me-2"></i> Databases</h4>
+              <p style="color: #94a3b8; line-height: 1.6; margin: 0; font-size: 0.95rem;">
+                <strong>PostgreSQL, MongoDB, Redis, Oracle, SQL Server.</strong> Query optimization, indexing, caching,
+                NoSQL.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2"
+              style="padding: 24px; background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(10px); border: 1px solid rgba(236, 72, 153, 0.3); border-radius: 12px; height: 100%; transition: transform 0.3s; box-shadow: 0 4px 20px rgba(0,0,0,0.5);"
+              onmouseover="this.style.transform='translateY(-5px)'; this.style.borderColor='#ec4899'; this.style.boxShadow='0 10px 30px rgba(236,72,153,0.2)'"
+              onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(236, 72, 153, 0.3)'; this.style.boxShadow='0 4px 20px rgba(0,0,0,0.5)'">
+              <h4 style="color: #f472b6; font-size: 1.2rem; margin-bottom: 15px; font-family: 'Outfit', sans-serif;"><i
+                  class="bi bi-window-sidebar me-2"></i> Frontend</h4>
+              <p style="color: #94a3b8; line-height: 1.6; margin: 0; font-size: 0.95rem;">
+                <strong>Angular 10-17, React, TypeScript, Tailwind CSS.</strong> RxJS, Signals API, Standalone
+                Components, D3.js.
+              </p>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-lg-4">
+            <div data-tilt data-tilt-max="10" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2"
+              style="padding: 24px; background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(10px); border: 1px solid rgba(148, 163, 184, 0.3); border-radius: 12px; height: 100%; transition: transform 0.3s; box-shadow: 0 4px 20px rgba(0,0,0,0.5);"
+              onmouseover="this.style.transform='translateY(-5px)'; this.style.borderColor='#94a3b8'; this.style.boxShadow='0 10px 30px rgba(148,163,184,0.2)'"
+              onmouseout="this.style.transform='translateY(0)'; this.style.borderColor='rgba(148, 163, 184, 0.3)'; this.style.boxShadow='0 4px 20px rgba(0,0,0,0.5)'">
+              <h4 style="color: #cbd5e1; font-size: 1.2rem; margin-bottom: 15px; font-family: 'Outfit', sans-serif;"><i
+                  class="bi bi-diagram-3 me-2"></i> Architecture & Methods</h4>
+              <p style="color: #94a3b8; line-height: 1.6; margin: 0; font-size: 0.95rem;">
+                <strong>System Design, Distributed Systems, Microservices.</strong> Event-driven architecture,
+                Agile/SAFe, SDLC.
+              </p>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -378,107 +480,42 @@
                 <div class="timeline">
                   <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
                     <div class="timeline-left">
-                      <h4 class="company">Reliance Jio</h4>
-                      <span class="period">Jul, 2022 - Current</span>
+                      <h4 class="company" style="color: #0ea5e9;">Reliance Jio Platforms</h4>
+                      <span class="period" style="color: #94a3b8;">Jun 2022 - Present</span>
                     </div>
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-right">
-                      <h3 class="position">Lead Software Engineer</h3>
+                    <div class="timeline-dot"
+                      style="background-color: #0ea5e9; border: 2px solid #fff; box-shadow: 0 0 10px #0ea5e9;"></div>
+                    <div class="timeline-right"
+                      style="background: rgba(15, 23, 42, 0.4); padding: 20px; border-radius: 8px; border-left: 2px solid #0ea5e9;">
+                      <h3 class="position" style="font-family: 'Outfit', sans-serif; color: #fff;">Senior Software
+                        Development Engineer</h3>
                       <p class="description" style="line-height: 1.6;">
-                      <ul style="padding-left: 20px; margin: 0; list-style-type: disc; color: #333;">
-                        <li><strong>Full-Stack Developer</strong> and <strong>Cloud & Microservices Specialist</strong>
-                          driving end-to-end application development at Jio Platforms.</li>
-                        <li>Led development and architecture of <strong>12+ scalable, high-performance
-                            applications</strong> serving millions of active users, improving efficiency and reliability
-                          by <strong>30%+</strong>.</li>
-                        <li>Designed and implemented <strong>responsive, accessible UIs</strong> using <strong>Angular,
-                            React, TypeScript, Material-UI, Tailwind CSS</strong>, reducing page load times by
-                          <strong>40%</strong> via advanced caching and lazy loading.
-                        </li>
-                        <li>Developed secure, scalable backend APIs with <strong>FastAPI, Node.js, RESTful APIs, JWT
-                            authentication</strong>, and optimized database queries in <strong>PostgreSQL, MongoDB,
-                            Redis</strong> for low-latency data access.</li>
-                        <li>Built and maintained <strong>cloud-native microservices</strong> deployed on
-                          <strong>Microsoft Azure</strong>, leveraging <strong>Docker, Kubernetes</strong>, and
-                          <strong>CI/CD pipelines (GitHub Actions, Azure DevOps)</strong> ensuring <strong>zero-downtime
-                            releases</strong> and <strong>99.9% uptime SLA</strong>.
-                        </li>
-                        <li>Spearheaded <strong>AI-powered self-healing modules</strong> that reduced system downtime by
-                          <strong>40%</strong>, boosting platform availability and customer satisfaction.
-                        </li>
-                        <li>Proactively upskilled in <strong>React.js</strong> and modern frontend frameworks to
-                          complement backend expertise and deliver seamless full-stack solutions.</li>
-                        <li>Led sprint planning, task prioritization, and stakeholder communications for
-                          cross-functional teams, improving delivery speed by <strong>25%</strong> and aligning closely
-                          with product goals.</li>
-                        <li>Mentored junior developers on best practices for <strong>code quality, architecture, and
-                            testing</strong>, enhancing team productivity and maintaining clean codebases.</li>
-                        <li>Thrived in fast-paced, <strong>Agile</strong> environments, adapting rapidly to evolving
-                          tech stacks and business needs to drive continuous innovation and product excellence.</li>
+                      <ul style="padding-left: 20px; margin: 0; list-style-type: disc; color: #cbd5e1;">
+                        <li style="margin-bottom: 8px;">Architected enterprise data pipeline orchestration platform
+                          (FastAPI + Angular + Kubernetes + Redis) processing 500K+ daily financial records, reducing
+                          manual workload by 70%.</li>
+                        <li style="margin-bottom: 8px;">Designed and deployed mission-critical REST API platform for
+                          Canara Bank and Govt of India's IndiaAI initiative, maintaining 99.9% uptime.</li>
+                        <li style="margin-bottom: 8px;">Built event-driven microservices with SQS and Redis caching,
+                          achieving P99 API latency &lt;150ms at 100K concurrent sessions.</li>
+                        <li style="margin-bottom: 8px;">Optimized DB queries across PostgreSQL and SQL Server; reduced
+                          P95 latency from 850ms to 320ms (62% improvement).</li>
+                        <li style="margin-bottom: 8px;">Owned BFSI production on-call (Canara Bank SLA: 99.9%); resolved
+                          12+ P1 incidents with MTTR &lt;45 mins.</li>
+                        <li style="margin-bottom: 8px;">Spearheaded Azure DevOps + Jenkins CI/CD pipelines with
+                          SonarQube quality gates.</li>
                       </ul>
 
-                      <strong>Tech Stack:</strong> Angular, React, TypeScript, Node.js, FastAPI, REST APIs, PostgreSQL,
-                      MongoDB, Redis, Docker, Kubernetes, Azure DevOps, GitHub Actions, Material-UI, Tailwind CSS,
-                      Microservices, JWT, Agile/Scrum
+                      <div style="margin-top: 15px; font-size: 0.9rem;">
+                        <strong style="color: #38bdf8;">Tech Stack:</strong> <span style="color: #94a3b8;">FastAPI,
+                          Python, Angular 17, Node.js, PostgreSQL, Redis, Kubernetes, Docker, Azure DevOps,
+                          JWT/OAuth2.</span>
+                      </div>
                       </p>
 
                     </div>
                   </div>
 
-                  <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
-                    <div class="timeline-left">
-                      <h4 class="company">Coding Minutes</h4>
-                      <span class="period">Jun 2021 - Sep 2021</span>
-                    </div>
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-right">
-                      <h3 class="position">Tech Community Manager | Internship</h3>
-                      <ul style="padding-left: 20px; color: #333; line-height: 1.5;">
-                        <li>Conducted <strong>150-200 interviews</strong> for Campus Captain applications, ensuring
-                          quality candidate selection and enhancing community leadership.</li>
-                        <li>Managed and mentored a growing <strong>tech community</strong>, fostering engagement,
-                          knowledge sharing, and skill development.</li>
-                        <li>Automated repetitive tasks using <strong>Python scripting</strong>, improving workflow
-                          efficiency and saving valuable team time.</li>
-                        <li>Collaborated closely with the team on <strong>Campus Captain program strategies</strong>,
-                          driving research, innovation, and program improvements.</li>
-                        <li>Boosted audience engagement significantly within a few months through targeted initiatives
-                          and effective communication.</li>
-                        <li>Provided guidance and technical support to community members, enhancing their growth and
-                          participation.</li>
-                        <li>Designed and delivered <strong>25+ marketing posters</strong> to promote events and
-                          initiatives, leveraging creative and technical design skills.</li>
-                      </ul>
-
-                    </div>
-                  </div>
-
-                  <div class="timeline-item" data-aos="fade-up" data-aos-delay="400">
-                    <div class="timeline-left">
-                      <h4 class="company">Estah Society & CSED</h4>
-                      <span class="period">May 2021 - Jul 2021</span>
-                    </div>
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-right">
-                      <ul style="padding-left: 20px; color: #333; line-height: 1.5;">
-                        <li>Promoted to <strong>Tech Lead</strong>, mentoring and coordinating a team of tech interns on
-                          live website projects.</li>
-                        <li>Developed and implemented key features on live projects, including <strong>User
-                            Dashboard</strong>, <strong>Sign-in/Sign-up</strong>, <strong>Registration Pages</strong>,
-                          and various pages for the <em>Centre for Social Entrepreneurship Development</em>.</li>
-                        <li>Built a <strong>fully functional, responsive static website</strong> using <strong>HTML,
-                            CSS, Bootstrap</strong>, enhanced with <strong>jQuery animations</strong>, and successfully
-                          deployed it.</li>
-                        <li>Implemented a <strong>chatbot</strong> that boosted customer experience by
-                          <strong>30%</strong>, enhancing user engagement and support.
-                        </li>
-                        <li>Integrated a <strong>payment gateway</strong> for donations using <strong>Razorpay</strong>,
-                          ensuring secure and seamless transactions.</li>
-                      </ul>
-
-
-                    </div>
-                  </div>
                 </div>
               </div>
 
@@ -487,39 +524,35 @@
                 <p class="lead"></p>
 
                 <div class="timeline">
-                  <!-- <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+                  <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
                     <div class="timeline-left">
-                      <h4 class="company">In-Progress</h4>
-                      <span class="period">2025</span>
+                      <h4 class="company" style="color: #8b5cf6;">IIIT Bangalore</h4>
+                      <span class="period" style="color: #94a3b8;">Expected 2026</span>
                     </div>
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-right">
-                      <h3 class="position">PGDM</h3>
-                      <p class="description">Name</p>
-                    </div>
-                  </div> -->
-
-                  <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
-                    <div class="timeline-left">
-                      <h4 class="company">VIT | Mumbai University</h4>
-                      <span class="period">2019 - 2022</span>
-                    </div>
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-right">
-                      <h3 class="position">Bachelor of Engineering in Computer Engineering</h3>
-                      <p class="description">Grade: O Grade - Distinction | Software Engineering Topper</p>
+                    <div class="timeline-dot"
+                      style="background-color: #8b5cf6; border: 2px solid #fff; box-shadow: 0 0 10px #8b5cf6;"></div>
+                    <div class="timeline-right"
+                      style="background: rgba(15, 23, 42, 0.4); padding: 20px; border-radius: 8px; border-left: 2px solid #8b5cf6;">
+                      <h3 class="position" style="font-family: 'Outfit', sans-serif; color: #fff;">Executive PG Diploma
+                        in AI/ML</h3>
+                      <p class="description" style="color: #cbd5e1;">Specialization: MLOps, Generative AI, Deep
+                        Learning, Agentic AI Systems</p>
                     </div>
                   </div>
 
-                  <div class="timeline-item" data-aos="fade-up" data-aos-delay="400">
+                  <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
                     <div class="timeline-left">
-                      <h4 class="company">GPP | MSBTE</h4>
-                      <span class="period">2016-2019</span>
+                      <h4 class="company" style="color: #0ea5e9;">VIT | Mumbai University</h4>
+                      <span class="period" style="color: #94a3b8;">2019 - 2022</span>
                     </div>
-                    <div class="timeline-dot"></div>
-                    <div class="timeline-right">
-                      <h3 class="position">Diploma in Computer Technology</h3>
-                      <p class="description">Grade: Distinction | Institute Rank - 2nd</p>
+                    <div class="timeline-dot"
+                      style="background-color: #0ea5e9; border: 2px solid #fff; box-shadow: 0 0 10px #0ea5e9;"></div>
+                    <div class="timeline-right"
+                      style="background: rgba(15, 23, 42, 0.4); padding: 20px; border-radius: 8px; border-left: 2px solid #0ea5e9;">
+                      <h3 class="position" style="font-family: 'Outfit', sans-serif; color: #fff;">B.E. in Computer
+                        Engineering</h3>
+                      <p class="description" style="color: #cbd5e1;">CGPA: 9.2/10 | Highest Marks in Software
+                        Engineering (Batch Topper)</p>
                     </div>
                   </div>
                 </div>
@@ -544,9 +577,9 @@
               stroke-width="2"></path>
           </svg>
         </div>
-        
 
-        
+
+
       </div><!-- End Section Title -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
@@ -555,72 +588,83 @@
 
           <div class="portfolio-filters-container" data-aos="fade-up" data-aos-delay="200">
             <ul class="portfolio-filters isotope-filters">
-              <li data-filter="*" class="filter-active">All Work</li>
-              <li data-filter=".filter-web">Web Design | UI | Backend</li>
-              <li data-filter=".filter-backend">Backend Heavy | UI</li>
-              <li data-filter=".filter-pythonUI">Python | UI</li>
-              <!-- <li data-filter=".filter-brand">Branding</li> -->
+              <li data-filter="*" class="filter-active">All Systems</li>
+              <li data-filter=".filter-genai">GenAI & MLOps</li>
+              <li data-filter=".filter-backend">Backend Architecture</li>
+              <li data-filter=".filter-fullstack">Full-Stack</li>
             </ul>
           </div>
 
           <div class="row g-4 isotope-container" data-aos="fade-up" data-aos-delay="300">
 
-            <div class="col-lg-3 col-md-3 portfolio-item isotope-item filter-web filter-backend">
-              <div class="portfolio-card">
-                <div class="portfolio-image">
-                  <img src="assets/img/projects/productmgmt.png" class="img-fluid" alt="" loading="lazy">
-                  <div class="portfolio-overlay">
-                    <div class="portfolio-actions">
-                      <a href="assets/img/projects/productmgmt.png" class="glightbox preview-link"
-                        data-gallery="portfolio-gallery-web"><i class="bi bi-eye"></i></a>
-                      <a href="https://github.com/bhargav-joshi/Prodexa" class="details-link"><i class="bi bi-arrow-right"></i></a>
-                    </div>
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-genai">
+              <div data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2"
+                class="portfolio-card"
+                style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
+                <div class="portfolio-content" style="padding: 20px;">
+                  <span class="category"
+                    style="color: #a78bfa; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">GenAI
+                    | MLOps</span>
+                  <h3 style="color: #fff; font-family: 'Outfit', sans-serif; margin-top: 10px; margin-bottom: 15px;">
+                    FinDoc AI</h3>
+                  <p style="color: #cbd5e1; font-size: 0.9rem; line-height: 1.6;">RAG-based API knowledge assistant
+                    using LangChain, OpenAI, and pgvector. Reduced developer onboarding by 40%.</p>
+                  <div style="margin-top: 15px; font-size: 0.8rem; color: #94a3b8;">
+                    <span
+                      style="background: rgba(139, 92, 246, 0.1); padding: 4px 8px; border-radius: 4px; margin-right: 5px;">FastAPI</span>
+                    <span
+                      style="background: rgba(139, 92, 246, 0.1); padding: 4px 8px; border-radius: 4px; margin-right: 5px;">LangChain</span>
+                    <span
+                      style="background: rgba(139, 92, 246, 0.1); padding: 4px 8px; border-radius: 4px;">PostgreSQL</span>
                   </div>
-                </div>
-                <div class="portfolio-content">
-                  <span class="category">Web Design | Node Js | UI</span>
-                  <h3>Prodeca - Product Management Dashboard</h3>
-                  <!-- <p>text below project</p> -->
                 </div>
               </div>
             </div>
 
-            <div class="col-lg-3 col-md-3 portfolio-item isotope-item filter-web filter-backend">
-              <div class="portfolio-card">
-                <div class="portfolio-image">
-                  <img src="assets/img/projects/imgcaption.png" class="img-fluid" alt="" loading="lazy">
-                  <div class="portfolio-overlay">
-                    <div class="portfolio-actions">
-                      <a href="assets/img/projects/imgcaption.png" class="glightbox preview-link"
-                        data-gallery="portfolio-gallery-web"><i class="bi bi-eye"></i></a>
-                      <a href="https://github.com/bhargav-joshi/Img-Caption-Generator" class="details-link"><i class="bi bi-arrow-right"></i></a>
-                    </div>
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-backend">
+              <div data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2"
+                class="portfolio-card"
+                style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(14, 165, 233, 0.3); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
+                <div class="portfolio-content" style="padding: 20px;">
+                  <span class="category"
+                    style="color: #38bdf8; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Backend
+                    | FinTech</span>
+                  <h3 style="color: #fff; font-family: 'Outfit', sans-serif; margin-top: 10px; margin-bottom: 15px;">
+                    CreditFlow API Gateway</h3>
+                  <p style="color: #cbd5e1; font-size: 0.9rem; line-height: 1.6;">Multi-tenant BFSI API gateway with
+                    OAuth2/JWT auth, Redis rate limiting, and NEFT/RTGS/UPI webhook processing. 95% test coverage.</p>
+                  <div style="margin-top: 15px; font-size: 0.8rem; color: #94a3b8;">
+                    <span
+                      style="background: rgba(14, 165, 233, 0.1); padding: 4px 8px; border-radius: 4px; margin-right: 5px;">FastAPI</span>
+                    <span
+                      style="background: rgba(14, 165, 233, 0.1); padding: 4px 8px; border-radius: 4px; margin-right: 5px;">Redis</span>
+                    <span
+                      style="background: rgba(14, 165, 233, 0.1); padding: 4px 8px; border-radius: 4px;">Docker</span>
                   </div>
-                </div>
-                <div class="portfolio-content">
-                  <span class="category">Backend | AI ML | UI</span>
-                  <h3> AI Image Captioning App</h3>
-                  <!-- <p>text below project</p> -->
                 </div>
               </div>
             </div>
 
-            <div class="col-lg-3 col-md-3 portfolio-item isotope-item filter-web filter-backend">
-              <div class="portfolio-card">
-                <div class="portfolio-image">
-                  <img src="assets/img/projects/bookmydose.png" class="img-fluid" alt="" loading="lazy">
-                  <div class="portfolio-overlay">
-                    <div class="portfolio-actions">
-                      <a href="assets/img/projects/bookmydose.png" class="glightbox preview-link"
-                        data-gallery="portfolio-gallery-web"><i class="bi bi-eye"></i></a>
-                      <a href="https://github.com/bhargav-joshi/bookmydose" class="details-link"><i class="bi bi-arrow-right"></i></a>
-                    </div>
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-fullstack">
+              <div data-tilt data-tilt-max="5" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.2"
+                class="portfolio-card"
+                style="background: rgba(15, 23, 42, 0.6); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
+                <div class="portfolio-content" style="padding: 20px;">
+                  <span class="category"
+                    style="color: #34d399; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px;">Full-Stack
+                    | Architecture</span>
+                  <h3 style="color: #fff; font-family: 'Outfit', sans-serif; margin-top: 10px; margin-bottom: 15px;">
+                    Data Orchestration Engine</h3>
+                  <p style="color: #cbd5e1; font-size: 0.9rem; line-height: 1.6;">Enterprise drag-and-drop pipeline
+                    orchestration with real-time visual monitoring. 70% manual workload reduction.</p>
+                  <div style="margin-top: 15px; font-size: 0.8rem; color: #94a3b8;">
+                    <span
+                      style="background: rgba(16, 185, 129, 0.1); padding: 4px 8px; border-radius: 4px; margin-right: 5px;">Angular</span>
+                    <span
+                      style="background: rgba(16, 185, 129, 0.1); padding: 4px 8px; border-radius: 4px; margin-right: 5px;">Kubernetes</span>
+                    <span
+                      style="background: rgba(16, 185, 129, 0.1); padding: 4px 8px; border-radius: 4px;">Redis</span>
                   </div>
-                </div>
-                <div class="portfolio-content">
-                  <span class="category">Web Design | Node js | UI</span>
-                  <h3>Book My Dose Web Portal</h3>
-                  <!-- <p>text below project</p> -->
                 </div>
               </div>
             </div>
@@ -633,93 +677,14 @@
                     <div class="portfolio-actions">
                       <a href="assets/img/projects/matrimony.png" class="glightbox preview-link"
                         data-gallery="portfolio-gallery-graphics"><i class="bi bi-eye"></i></a>
-                      <a href="https://github.com/bhargav-joshi/Vivah.com-Matrimony-Portal" class="details-link"><i class="bi bi-arrow-right"></i></a>
+                      <a href="https://github.com/bhargav-joshi/Vivah.com-Matrimony-Portal" class="details-link"><i
+                          class="bi bi-arrow-right"></i></a>
                     </div>
                   </div>
                 </div>
                 <div class="portfolio-content">
                   <span class="category">Web Design | PHP | MySQL | UI</span>
                   <h3>Matrimony Web Portal</h3>
-                  <!-- <p>text below project</p> -->
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-3 col-md-3 portfolio-item isotope-item filter-pythonUI">
-              <div class="portfolio-card">
-                <div class="portfolio-image">
-                  <img src="assets/img/projects/ID Qr.png" class="img-fluid" alt="" loading="lazy">
-                  <div class="portfolio-overlay">
-                    <div class="portfolio-actions">
-                      <a href="assets/img/projects/ID Qr.png" class="glightbox preview-link"
-                        data-gallery="portfolio-gallery-motion"><i class="bi bi-eye"></i></a>
-                      <a href="https://github.com/bhargav-joshi/ID-Card-Generator-with-QRCode" class="details-link"><i class="bi bi-arrow-right"></i></a>
-                    </div>
-                  </div>
-                </div>
-                <div class="portfolio-content">
-                  <span class="category">Automation | Python</span>
-                  <h3>QR Based ID Card Generator</h3>
-                  <!-- <p>text below project</p> -->
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-3 col-md-3 portfolio-item isotope-item filter-backend">
-              <div class="portfolio-card">
-                <div class="portfolio-image">
-                  <img src="assets/img/projects/shreehotel.png" class="img-fluid" alt="" loading="lazy">
-                  <div class="portfolio-overlay">
-                    <div class="portfolio-actions">
-                      <a href="assets/img/projects/shreehotel.png" class="glightbox preview-link"
-                        data-gallery="portfolio-gallery-brand"><i class="bi bi-eye"></i></a>
-                      <a href="https://github.com/bhargav-joshi/Shree-Sai-Hotel-Billing-System" class="details-link"><i class="bi bi-arrow-right"></i></a>
-                    </div>
-                  </div>
-                </div>
-                <div class="portfolio-content">
-                  <span class="category">Backend | UI </span>
-                  <h3>Shree Sai Hotel Billing System in Python</h3>
-                  <!-- <p>text below project</p> -->
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-3 col-md-3 portfolio-item isotope-item filter-pythonUI">
-              <div class="portfolio-card">
-                <div class="portfolio-image">
-                  <img src="assets/img/projects/Insta.png" class="img-fluid" alt="" loading="lazy">
-                  <div class="portfolio-overlay">
-                    <div class="portfolio-actions">
-                      <a href="assets/img/projects/Insta.png" class="glightbox preview-link"
-                        data-gallery="portfolio-gallery-web"><i class="bi bi-eye"></i></a>
-                      <a href="https://github.com/bhargav-joshi/Instagram-Style-Photo-Collage" class="details-link"><i class="bi bi-arrow-right"></i></a>
-                    </div>
-                  </div>
-                </div>
-                <div class="portfolio-content">
-                  <span class="category">Backend | AI ML</span>
-                  <h3>Instagram Style Photo Collage</h3>
-                  <!-- <p>text below project</p> -->
-                </div>
-              </div>
-            </div>
-
-            <div class="col-lg-3 col-md-3 portfolio-item isotope-item filter-backend">
-              <div class="portfolio-card">
-                <div class="portfolio-image">
-                  <img src="assets/img/projects/markspred.png" class="img-fluid" alt="" loading="lazy">
-                  <div class="portfolio-overlay">
-                    <div class="portfolio-actions">
-                      <a href="assets/img/projects/markspred.png" class="glightbox preview-link"
-                        data-gallery="portfolio-gallery-graphics"><i class="bi bi-eye"></i></a>
-                      <a href="https://github.com/bhargav-joshi/Marks-Prediction-on-Flask" class="details-link"><i class="bi bi-arrow-right"></i></a>
-                    </div>
-                  </div>
-                </div>
-                <div class="portfolio-content">
-                  <span class="category">Backend | AI ML</span>
-                  <h3>Marks Prediction using Flask</h3>
                   <!-- <p>text below project</p> -->
                 </div>
               </div>
@@ -734,11 +699,12 @@
     </section><!-- /Portfolio Section -->
 
     <!-- Testimonials Section -->
-    <section id="testimonials" class="testimonials section light-background">
+    <section id="testimonials" class="testimonials section"
+      style="background: rgba(15, 23, 42, 0.4); border-top: 1px solid rgba(14, 165, 233, 0.2);">
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Recommendations</h2>
+        <h2 style="font-family: 'Outfit', sans-serif; color: #fff;">Peer Recommendations</h2>
         <div class="title-shape">
           <svg viewBox="0 0 200 20" xmlns="http://www.w3.org/2000/svg">
             <path d="M 0,10 C 40,0 60,20 100,10 C 140,0 160,20 200,10" fill="none" stroke="currentColor"
@@ -765,28 +731,20 @@
             }
           </script>
 
-          <div class="swiper-wrapper">
-
+            <!-- Testimonial 1: Paras Biswas -->
             <div class="swiper-slide">
-              <div class="testimonial-item">
+              <div class="testimonial-item"
+                style="background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(10px); border: 1px solid rgba(16, 185, 129, 0.3); border-radius: 12px; padding: 30px; box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
                 <div class="row">
                   <div class="col-lg-12">
-                    <h2>Technical Lead - Full Stack Development @ Reliance Jio</h2>
-                    <p>
-                      Bhargav has consistently demonstrated exceptional skills in both programming and leadership. He
-                      consistently operates at a level beyond his assigned role, making him an invaluable asset to the
-                      team. Bhargav goes above and beyond his responsibilities, consistently delivering outstanding
-                      results. His proactive approach to learning extends beyond his immediate tech stack, as he strives
-                      to understand the broader processes to ensure seamless and error-free delivery. Bhargav’s
-                      dedication, expertise, and commitment make him a valuable addition to any team he joins.
+                    <h2 style="color: #34d399; font-family: 'Outfit', sans-serif;">Portfolio Lead @ Jio Platforms</h2>
+                    <p style="color: #cbd5e1; line-height: 1.8; font-style: italic;">
+                      "Bhargav has been a key contributor at Jio Platforms, demonstrating exceptional expertise in both frontend and backend development. His leadership and technical acumen were pivotal in successfully delivering a critical database PaaS project, streamlining operations and reducing manual effort by over 60%. His ability to collaborate, mentor, and innovate makes him an indispensable asset to any team."
                     </p>
-                    <div class="profile d-flex align-items-center">
-                      <img
-                        src="https://media.licdn.com/dms/image/v2/D4E03AQEDLfccgUY3Jg/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1644428269781?e=1754524800&v=beta&t=k1fse1WdStZyMmD13B4OF324QS9p-wMarl4yXZt0VFM"
-                        class="profile-img" alt="">
+                    <div class="profile d-flex align-items-center" style="margin-top: 20px;">
                       <div class="profile-info">
-                        <h3>Ragini S</h3>
-                        <span>Senior Tech Lead</span>
+                        <h3 style="color: #fff; font-size: 1.1rem; margin: 0; font-family: 'Outfit', sans-serif;">Paras Biswas</h3>
+                        <span style="color: #94a3b8; font-size: 0.9rem;">Portfolio Lead (Cloud, AIOPS)</span>
                       </div>
                     </div>
                   </div>
@@ -794,27 +752,21 @@
               </div>
             </div><!-- End Testimonial Item -->
 
+            <!-- Testimonial 2: Ragini S -->
             <div class="swiper-slide">
-              <div class="testimonial-item">
+              <div class="testimonial-item"
+                style="background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(10px); border: 1px solid rgba(14, 165, 233, 0.3); border-radius: 12px; padding: 30px; box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
                 <div class="row">
                   <div class="col-lg-12">
-                    <h2>DGM @ Jio Platforms | ISB | Canara Bank</h2>
-                    <p>
-                      Bhargav has handled his work meticulously and efficiently while working with me in various
-                      projects within Jio Platforms. He has always shown his capability to take up roles over and above
-                      his existing profile and expectations. He has always shown enthusiasm and eagerness to fulfill his
-                      responsibilities and then trying to take additional tasks to ensure delivery of flawless products
-                      and also tries to incorporate new ideas.
-                      His skills in various technologies (UI, Python, Data Science) and his attitude towards work
-                      immensely helps the team.
+                    <h2 style="color: #38bdf8; font-family: 'Outfit', sans-serif;">Development Lead @ Jio Platforms</h2>
+                    <p style="color: #cbd5e1; line-height: 1.8; font-style: italic;">
+                      "Bhargav has consistently demonstrated exceptional skills in both programming and leadership. He consistently operates at a level beyond his assigned role, making him an invaluable asset to the team. His proactive approach to learning extends beyond his immediate tech stack, as he strives to understand the broader processes to ensure seamless and error-free delivery."
                     </p>
-                    <div class="profile d-flex align-items-center">
-                      <img
-                        src="https://media.licdn.com/dms/image/v2/D4D03AQEx3WRq3Y5A1g/profile-displayphoto-shrink_100_100/B4DZUmk10qG4AU-/0/1740108947722?e=1754524800&v=beta&t=uhU-JMaKBpjB_teuhWc9kS9qdX5cPHNwRDE-ugUjtHY"
-                        class="profile-img" alt="">
+                    <div class="profile d-flex align-items-center" style="margin-top: 20px;">
+                      <img src="https://media.licdn.com/dms/image/v2/D4E03AQEDLfccgUY3Jg/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1644428269781?e=1754524800&v=beta&t=k1fse1WdStZyMmD13B4OF324QS9p-wMarl4yXZt0VFM" class="profile-img" alt="" style="border-radius: 50%; border: 2px solid #0ea5e9; width: 60px; height: 60px; margin-right: 15px;">
                       <div class="profile-info">
-                        <h3>Deepak Singh</h3>
-                        <span>Project Manager</span>
+                        <h3 style="color: #fff; font-size: 1.1rem; margin: 0; font-family: 'Outfit', sans-serif;">Ragini S</h3>
+                        <span style="color: #94a3b8; font-size: 0.9rem;">Development Lead</span>
                       </div>
                     </div>
                   </div>
@@ -822,26 +774,20 @@
               </div>
             </div><!-- End Testimonial Item -->
 
+            <!-- Testimonial 3: Deepak Singh -->
             <div class="swiper-slide">
-              <div class="testimonial-item">
+              <div class="testimonial-item"
+                style="background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(10px); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 12px; padding: 30px; box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
                 <div class="row">
                   <div class="col-lg-12">
-                    <h2>
-                      Sr. SWE Google Cloud | Co-founded Coding Minutes | 200k learners | Udemy Instructor
-                    </h2>
-                    <p>
-                      Bhargav is super enthusiastic & passionate young lad. I found him multi-talented in everything
-                      from programming to running a community. He was Community Manager at Coding Minutes and discharged
-                      his duties efficiently. His consistent efforts with us help us grow our network speedily. He
-                      always comes up with new ideas and executes them flawlessly with little or almost no help
+                    <h2 style="color: #a78bfa; font-family: 'Outfit', sans-serif;">DGM @ Jio Platforms | Canara Bank</h2>
+                    <p style="color: #cbd5e1; line-height: 1.8; font-style: italic;">
+                      "Bhargav has handled his work meticulously and efficiently while working with me in various projects within Jio Platforms. He has always shown his capability to take up roles over and above his existing profile and expectations. His skills in various technologies (UI, Python, Data Science) and his attitude towards work immensely helps the team."
                     </p>
-                    <div class="profile d-flex align-items-center">
-                      <img
-                        src="https://media.licdn.com/dms/image/v2/D4D03AQEyBbVjGLQiSQ/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1663068448149?e=1754524800&v=beta&t=1MBEec_Mdfer3pZ1siBxrMgg3QT_wMIP5TrjojP_hL4"
-                        class="profile-img" alt="">
+                    <div class="profile d-flex align-items-center" style="margin-top: 20px;">
                       <div class="profile-info">
-                        <h3>Prateek Narang</h3>
-                        <span>Senior Software Engineer @Google</span>
+                        <h3 style="color: #fff; font-size: 1.1rem; margin: 0; font-family: 'Outfit', sans-serif;">Deepak Singh</h3>
+                        <span style="color: #94a3b8; font-size: 0.9rem;">Project Manager</span>
                       </div>
                     </div>
                   </div>
@@ -849,25 +795,41 @@
               </div>
             </div><!-- End Testimonial Item -->
 
+            <!-- Testimonial 4: Prateek Narang -->
             <div class="swiper-slide">
-              <div class="testimonial-item">
+              <div class="testimonial-item"
+                style="background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(10px); border: 1px solid rgba(245, 158, 11, 0.3); border-radius: 12px; padding: 30px; box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
                 <div class="row">
                   <div class="col-lg-12">
-                    <h2>Expertrons| Tedx | Built India's Top EdGame Venture | Previous firm acquired | CNBC,Business
-                      World| IITB | UPM Malaysia</h2>
-                    <p>
-                      It's rare that you come across standout talent like Bhargav. When we built Expertrons, Bhargav did
-                      played a pivotal role in defining the mentor mentee process. And of-course his personality &
-                      technical skills are one of his best qualities. Bhargav would be an asset to any team he joins. We
-                      wish him all the best for his future endeavors.
+                    <h2 style="color: #fbbf24; font-family: 'Outfit', sans-serif;">Senior Engineer @ Google</h2>
+                    <p style="color: #cbd5e1; line-height: 1.8; font-style: italic;">
+                      "Bhargav is a super enthusiastic & passionate young lad. I found him multi-talented in everything from programming to running a community. He always comes up with new ideas and executes them flawlessly with little or almost no help."
                     </p>
-                    <div class="profile d-flex align-items-center">
-                      <img
-                        src="https://media.licdn.com/dms/image/v2/C5103AQFBl4i1unUKNQ/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1551147202014?e=1754524800&v=beta&t=gofr37_XfqAYWyj_x48Ox8r-aj772-KielQwAzJt9pY"
-                        class="profile-img" alt="">
+                    <div class="profile d-flex align-items-center" style="margin-top: 20px;">
                       <div class="profile-info">
-                        <h3>Jatin Solanki</h3>
-                        <span>Co-founder @Expertrons</span>
+                        <h3 style="color: #fff; font-size: 1.1rem; margin: 0; font-family: 'Outfit', sans-serif;">Prateek Narang</h3>
+                        <span style="color: #94a3b8; font-size: 0.9rem;">Senior Engineer, Google</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div><!-- End Testimonial Item -->
+
+            <!-- Testimonial 5: Jatin Solanki -->
+            <div class="swiper-slide">
+              <div class="testimonial-item"
+                style="background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(10px); border: 1px solid rgba(236, 72, 153, 0.3); border-radius: 12px; padding: 30px; box-shadow: 0 4px 20px rgba(0,0,0,0.5);">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <h2 style="color: #f472b6; font-family: 'Outfit', sans-serif;">Founder @ Expertrons</h2>
+                    <p style="color: #cbd5e1; line-height: 1.8; font-style: italic;">
+                      "It’s rare that you come across standout talent like Bhargav. When we built Expertrons, Bhargav played a pivotal role in defining the mentor mentee process. His personality & technical skills are one of his best qualities. Bhargav would be an asset to any team he joins."
+                    </p>
+                    <div class="profile d-flex align-items-center" style="margin-top: 20px;">
+                      <div class="profile-info">
+                        <h3 style="color: #fff; font-size: 1.1rem; margin: 0; font-family: 'Outfit', sans-serif;">Jatin Solanki</h3>
+                        <span style="color: #94a3b8; font-size: 0.9rem;">Founder, Expertrons</span>
                       </div>
                     </div>
                   </div>
@@ -1142,6 +1104,12 @@
   <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Particles.js Library -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+
+  <!-- VanillaTilt Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
 
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>

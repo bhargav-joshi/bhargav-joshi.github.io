@@ -1,44 +1,150 @@
 /* Fonts */
 :root {
-  --default-font: "Roboto",  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --heading-font: "Questrial",  sans-serif;
-  --nav-font: "Noto Sans",  sans-serif;
+  --default-font: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --heading-font: "Outfit", sans-serif;
+  --nav-font: "Inter", sans-serif;
 }
 
-/* Global Colors - The following color variables are used throughout the website. Updating them here will change the color scheme of the entire website */
+/* Global Colors - Deep Dark AI Theme */
 :root { 
-  --background-color: #ffffff; /* Background color for the entire website, including individual sections */
-  --default-color: #0a0f14; /* Default color used for the majority of the text content across the entire website */
-  --heading-color: #0f2943; /* Color for headings, subheadings and title throughout the website */
-  --accent-color: #0d6efd; /* Accent color that represents your brand on the website. It's used for buttons, links, and other elements that need to stand out */
-  --surface-color: #ffffff; /* The surface color is used as a background of boxed elements within sections, such as cards, icon boxes, or other elements that require a visual separation from the global background. */
-  --contrast-color: #ffffff; /* Contrast color for text, ensuring readability against backgrounds of accent, heading, or default colors. */
+  --background-color: #030712; /* Deep dark blue/black */
+  --default-color: #e2e8f0; /* Soft light gray for readability */
+  --heading-color: #ffffff; /* Crisp white for headings */
+  --accent-color: #0ea5e9; /* Glowing cyan accent */
+  --surface-color: rgba(15, 23, 42, 0.4); /* Glassmorphism surface */
+  --contrast-color: #ffffff; 
 }
 
-/* Nav Menu Colors - The following color variables are used specifically for the navigation menu. They are separate from the global colors to allow for more customization options */
+/* Nav Menu Colors */
 :root {
-  --nav-color: #0a0f14;  /* The default color of the main navmenu links */
-  --nav-hover-color: #0d6efd; /* Applied to main navmenu links when they are hovered over or active */
-  --nav-mobile-background-color: #ffffff; /* Used as the background color for mobile navigation menu */
-  --nav-dropdown-background-color: #ffffff; /* Used as the background color for dropdown items that appear when hovering over primary navigation items */
-  --nav-dropdown-color: #0a0f14; /* Used for navigation links of the dropdown items in the navigation menu. */
-  --nav-dropdown-hover-color: #0d6efd; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
+  --nav-color: #94a3b8;  
+  --nav-hover-color: #38bdf8; 
+  --nav-mobile-background-color: rgba(15, 23, 42, 0.95); 
+  --nav-dropdown-background-color: rgba(15, 23, 42, 0.95); 
+  --nav-dropdown-color: #e2e8f0; 
+  --nav-dropdown-hover-color: #38bdf8; 
 }
 
 /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
 
+/* Color Presets */
+
 .light-background {
-  --background-color: #faf9fb;
-  --surface-color: #ffffff;
+  --background-color: rgba(15, 23, 42, 0.2);
+  --surface-color: rgba(30, 41, 59, 0.4);
 }
 
 .dark-background {
-  --background-color: #060606;
+  --background-color: #030712;
   --default-color: #ffffff;
   --heading-color: #ffffff;
-  --surface-color: #252525;
+  --surface-color: rgba(15, 23, 42, 0.6);
   --contrast-color: #ffffff;
 }
+
+/* Custom Cursor */
+body {
+  cursor: none; /* Hide default cursor */
+}
+
+.custom-cursor-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--accent-color);
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s, height 0.2s, background-color 0.2s;
+  box-shadow: 0 0 10px var(--accent-color), 0 0 20px var(--accent-color);
+}
+
+.custom-cursor-outline {
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgba(14, 165, 233, 0.5);
+  border-radius: 50%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 99998;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s, height 0.2s, border-color 0.2s, transform 0.1s ease-out;
+}
+
+/* Cursor Hover States */
+.cursor-hover .custom-cursor-dot {
+  width: 12px;
+  height: 12px;
+  background-color: #fff;
+  box-shadow: 0 0 15px #fff;
+}
+.cursor-hover .custom-cursor-outline {
+  width: 60px;
+  height: 60px;
+  border-color: #fff;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Pulsing CTA Animation */
+@keyframes intensePulse {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.7); }
+  50% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(14, 165, 233, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(14, 165, 233, 0); }
+}
+
+.btn-pulse {
+  animation: intensePulse 2s infinite;
+}
+
+/* Typing Caret Animation */
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+.typing-caret {
+  border-right: 3px solid var(--accent-color);
+  animation: blink 0.75s step-end infinite;
+  padding-right: 5px;
+}
+
+/* Floating Terminal Overlay */
+.terminal-overlay {
+  background: rgba(3, 7, 18, 0.85);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(14, 165, 233, 0.4);
+  border-radius: 8px;
+  padding: 15px;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 0.85rem;
+  color: #34d399;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  position: absolute;
+  bottom: -30px;
+  left: -30px;
+  width: 280px;
+  z-index: 10;
+  overflow: hidden;
+}
+.terminal-header {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding-bottom: 8px;
+}
+.terminal-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.dot-red { background: #ef4444; }
+.dot-yellow { background: #f59e0b; }
+.dot-green { background: #10b981; }
+
 
 /* Smooth scroll */
 :root {
